@@ -1,0 +1,47 @@
+url,page_type,primary_topic,primary_keyword,search_intent,cluster,semantic_completeness,entity_coverage,intent_alignment,contextual_inlinks,contextual_outlinks,overlap_risk,priority,evidence_reference
+/,homepage,IPTV service overview,Zenora IPTV,mixed commercial/discovery,commercial,PARTIAL,PARTIAL,PARTIAL,0,12,LOW,P2,src/app/page.tsx
+/pricing,commercial,plans and connections,IPTV pricing,commercial,commercial,PARTIAL,PARTIAL,PARTIAL,5,4,LOW,P2,src/app/pricing/page.tsx;src/components/site.tsx
+/channels,commercial,channel information,IPTV channels,commercial,commercial,PARTIAL,PARTIAL,PARTIAL,3,2,LOW,P2,src/app/channels/page.tsx
+/features,commercial,service features,IPTV features,commercial,commercial,PARTIAL,PARTIAL,PARTIAL,3,2,LOW,P2,src/app/features/page.tsx
+/devices,hub,device compatibility,IPTV devices,informational/how-to,setup,STRONG,STRONG,STRONG,7,3,LOW,P2,src/components/pages.tsx:22
+/setup,hub,setup directory,IPTV setup,how-to,setup,STRONG,STRONG,STRONG,8,8,LOW,P2,src/components/pages.tsx:26
+/setup/android,setup,Android setup,IPTV Android setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P2,src/app/setup/android/page.tsx
+/setup/apple-tv,setup,Apple TV setup,IPTV Apple TV setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P2,src/app/setup/apple-tv/page.tsx
+/setup/firestick,setup,Fire TV setup,IPTV Firestick setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P2,src/app/setup/firestick/page.tsx
+/setup/ios,setup,iOS setup,IPTV iOS setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P3,src/app/setup/ios/page.tsx
+/setup/mac,setup,macOS setup,IPTV Mac setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P3,src/app/setup/mac/page.tsx
+/setup/mag,setup,MAG setup,IPTV MAG setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P3,src/app/setup/mag/page.tsx
+/setup/smart-tv,setup,Smart TV setup,IPTV smart TV setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P2,src/app/setup/smart-tv/page.tsx
+/setup/windows,setup,Windows setup,IPTV Windows setup,how-to,setup,PARTIAL,PARTIAL,STRONG,2,2,LOW,P3,src/app/setup/windows/page.tsx
+/how-it-works,commercial,service explanation,how IPTV works,informational/commercial,commercial,PARTIAL,PARTIAL,PARTIAL,3,2,MEDIUM,P2,src/app/how-it-works/page.tsx
+/troubleshooting,hub,troubleshooting,IPTV troubleshooting,problem-solving,performance,PARTIAL,PARTIAL,STRONG,6,3,MEDIUM,P1,src/app/troubleshooting/page.tsx
+/support,support,support access,IPTV support,navigational,commercial,PARTIAL,PARTIAL,STRONG,5,2,LOW,P2,src/app/support/page.tsx
+/faq,FAQ,service FAQs,IPTV FAQ,informational,commercial,PARTIAL,PARTIAL,PARTIAL,4,2,LOW,P2,src/app/faq/page.tsx
+/trial,commercial,trial,IPTV trial,commercial,commercial,PARTIAL,PARTIAL,PARTIAL,4,2,LOW,P2,src/app/trial/page.tsx
+/renew,commercial,renewal,IPTV renewal,commercial,commercial,PARTIAL,PARTIAL,PARTIAL,3,1,LOW,P3,src/app/renew/page.tsx
+/about,about,brand/about,Zenora IPTV,navigational,commercial,PARTIAL,PARTIAL,STRONG,2,1,LOW,P3,src/app/about/page.tsx
+/contact,contact,contact,Zenora IPTV contact,navigational,commercial,PARTIAL,PARTIAL,STRONG,3,1,LOW,P3,src/app/contact/page.tsx
+/blog,archive,knowledge hub,IPTV guides,informational,fundamentals,PARTIAL,STRONG,PARTIAL,8,19,LOW,P1,src/app/blog/page.tsx
+/blog/what-is-iptv,article,IPTV fundamentals,what is IPTV,informational,fundamentals,STRONG,STRONG,STRONG,4,5,LOW,P1,src/data/guides.ts:40
+/blog/m3u-playlists-explained,article,M3U playlists,what is an M3U playlist,informational,fundamentals,STRONG,STRONG,STRONG,5,6,LOW,P1,src/data/guides.ts:271
+/blog/device-compatibility,article,device compatibility,IPTV device compatibility,informational,setup,STRONG,STRONG,STRONG,7,5,LOW,P1,src/data/guides.ts:448
+/blog/fire-tv-setup-checklist,article,Fire TV setup,IPTV Setup on Firestick,how-to,setup,STRONG,STRONG,STRONG,5,5,LOW,P2,src/data/guides.ts:677
+/blog/iptv-troubleshooting,article,general troubleshooting,IPTV troubleshooting,problem-solving,performance,STRONG,STRONG,STRONG,7,6,MEDIUM,P1,src/data/guides.ts:890
+/blog/improve-streaming-quality,article,stream quality,improve IPTV streaming quality,problem-solving,performance,STRONG,STRONG,STRONG,5,5,MEDIUM,P1,src/data/guides.ts:1055
+/blog/iptv-security-privacy,article,security/privacy,IPTV security and privacy,informational,safety,STRONG,STRONG,STRONG,5,5,LOW,P1,src/data/guides.ts:1209
+/blog/choosing-an-iptv-subscription,article,subscription evaluation,how to choose an IPTV subscription,commercial investigation,safety,STRONG,STRONG,STRONG,5,5,LOW,P1,src/data/guides.ts:1368
+/blog/what-is-an-iptv-player,article,IPTV player,IPTV player vs provider,informational,fundamentals,STRONG,STRONG,STRONG,5,5,LOW,P1,src/data/guides.ts:1554
+/blog/android-tv-google-tv-iptv,article,Android/Google TV,IPTV on Android TV and Google TV,how-to,setup,STRONG,STRONG,STRONG,5,5,LOW,P2,src/data/guides.ts:1710
+/blog/iptv-buffering-causes,article,buffering diagnosis,IPTV Buffering Fix,troubleshooting,performance,STRONG,STRONG,STRONG,7,7,MEDIUM,P1,src/data/guides.ts:1925
+/blog/ethernet-vs-wifi-streaming,article,local network choice,Ethernet vs Wi-Fi for streaming,commercial investigation,performance,STRONG,STRONG,STRONG,6,5,MEDIUM,P1,src/data/guides.ts:2141
+/blog/samsung-smart-tv-iptv,article,Samsung compatibility,Samsung Smart TV IPTV compatibility,how-to,setup,STRONG,STRONG,STRONG,4,5,LOW,P2,src/data/guides.ts:2360
+/blog/apple-tv-iptv-compatibility,article,Apple TV compatibility,Apple TV IPTV compatibility,how-to,setup,STRONG,STRONG,STRONG,4,5,LOW,P2,src/data/guides.ts:2581
+/blog/iptv-epg-not-working,article,EPG troubleshooting,IPTV EPG not working,troubleshooting,performance,STRONG,STRONG,STRONG,5,6,MEDIUM,P1,src/data/guides.ts:2806
+/blog/m3u-playlist-not-loading,article,M3U import troubleshooting,M3U playlist not loading,troubleshooting,performance,STRONG,STRONG,STRONG,6,7,LOW,P1,src/data/guides.ts:2998
+/blog/iptv-black-screen-no-sound,article,black screen/audio,IPTV black screen no sound,troubleshooting,performance,STRONG,STRONG,STRONG,5,7,MEDIUM,P1,src/data/guides.ts:3152
+/blog/fire-tv-vs-android-tv,article,platform comparison,Fire TV vs Android TV IPTV,commercial investigation,setup,STRONG,STRONG,STRONG,5,7,LOW,P2,src/data/guides.ts:3299
+/blog/iptv-login-authentication-errors,article,login errors,IPTV login authentication errors,troubleshooting,performance,STRONG,STRONG,STRONG,6,7,MEDIUM,P1,src/data/guides.ts:3487
+/privacy-policy,policy,privacy policy,Zenora IPTV privacy policy,legal/navigational,commercial,NOT_SCORED,NOT_SCORED,ALIGNED,1,0,LOW,P3,src/app/privacy-policy/page.tsx
+/terms,policy,service terms,Zenora IPTV terms,legal/navigational,commercial,NOT_SCORED,NOT_SCORED,ALIGNED,1,0,LOW,P3,src/app/terms/page.tsx
+/refund-policy,policy,refund policy,Zenora IPTV refund policy,legal/navigational,commercial,NOT_SCORED,NOT_SCORED,ALIGNED,1,0,LOW,P3,src/app/refund-policy/page.tsx
+/cookie-policy,policy,cookie policy,Zenora IPTV cookie policy,legal/navigational,commercial,NOT_SCORED,NOT_SCORED,ALIGNED,1,0,LOW,P3,src/app/cookie-policy/page.tsx

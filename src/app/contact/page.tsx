@@ -1,0 +1,1 @@
+import { Contact } from "@/components/pages"; import { brandMetadata } from "../route-metadata"; export const metadata=brandMetadata("Contact Zenora IPTV | Get in Touch","Contact Zenora IPTV with a clear question about plans, setup, or compatible-device guidance.","/contact"); export default function Page(){return <Contact/>;}

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Zenora IPTV">
+  <title>Zenora IPTV</title>
+  <rect width="512" height="512" rx="112" fill="#07101d"/>
+  <rect x="114" y="116" width="284" height="56" rx="28" fill="#28e3ed"/>
+  <path d="M349 158h72L187 354h-72l234-196Z" fill="#4c99ff"/>
+  <rect x="114" y="340" width="284" height="56" rx="28" fill="#8b63ff"/>
+  <rect x="4" y="4" width="504" height="504" rx="108" fill="none" stroke="#d7fbff" stroke-opacity=".11" stroke-width="8"/>
+</svg>

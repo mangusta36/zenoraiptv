@@ -1,0 +1,1 @@
+import { Channels } from "@/components/pages"; import { brandMetadata } from "../route-metadata"; export const metadata=brandMetadata("Zenora IPTV Channels | Channel Information","Explore Zenora IPTV channel information and confirm exact availability before purchase.","/channels"); export default Channels;

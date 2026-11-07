@@ -1,0 +1,1 @@
+import { FaqPage } from "@/components/pages"; import { brandMetadata } from "../route-metadata"; export const metadata=brandMetadata("Zenora IPTV FAQ | Common Questions","Find clear answers to common Zenora IPTV questions about plans, setup, and support.","/faq"); export default FaqPage;

@@ -1,0 +1,1 @@
+import Link from'next/link';export default function Page(){return <main className="page-hero"><div className="shell"><div className="eyebrow">404</div><h1>This channel isn’t on the guide.</h1><p>That page does not exist or has moved.</p><Link className="btn primary" href="/">Back home</Link></div></main>;}

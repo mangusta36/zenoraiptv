@@ -1,0 +1,1 @@
+import { Contact } from "@/components/pages"; import { brandMetadata } from "../route-metadata"; export const metadata=brandMetadata("Zenora IPTV Trial | Explore Your Options","Request information about the Zenora IPTV paid 24-hour trial option and confirm terms before proceeding.","/trial"); export default function Page(){return <Contact trial/>;}

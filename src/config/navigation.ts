@@ -1,0 +1,1 @@
+export const nav = [{href:'/',label:'Home'},{href:'/pricing',label:'Pricing'},{href:'/channels',label:'Channels'},{href:'/features',label:'Features'},{href:'/devices',label:'Devices'},{href:'/setup',label:'Setup Guides'},{href:'/blog',label:'Blog'},{href:'/faq',label:'FAQ'},{href:'/contact',label:'Contact'}];

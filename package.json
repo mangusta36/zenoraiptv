@@ -1,0 +1,41 @@
+{
+  "name": "zenora-iptv",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "validate": "node scripts/validate-guides.mjs",
+    "validate:guides": "node scripts/validate-guides.mjs",
+    "test:static": "node scripts/check-platform.mjs",
+    "check:budget": "node scripts/check-build-budget.mjs",
+    "verify:build": "node scripts/verify-production-build.mjs",
+    "test:e2e": "playwright test tests/e2e",
+    "test:a11y": "playwright test tests/accessibility",
+    "test": "npm run test:e2e",
+    "check": "npm run test:static",
+    "verify": "npm run verify:build"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "5.9.2",
+    "lucide-react": "0.468.0",
+    "next": "15.5.28",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-hook-form": "7.91.0",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
+    "@types/node": "22.20.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "15.5.28",
+    "typescript": "5.9.3"
+  }
+}

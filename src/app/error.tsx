@@ -1,0 +1,1 @@
+'use client';export default function Error(){return <main className="page-hero"><div className="shell"><div className="eyebrow">Something went wrong</div><h1>Let’s get you back on track.</h1><button className="btn primary" onClick={()=>location.reload()}>Try again</button></div></main>}
