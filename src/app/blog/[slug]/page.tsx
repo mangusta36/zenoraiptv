@@ -6,6 +6,7 @@ import { categories, guideBySlug, guides } from "@/data/guides";
 import { ScrollableTable } from "@/components/scrollable-table";
 import { articleResearch } from "@/data/article-research";
 import { articleRelationships, clusterJourneys } from "@/data/topic-architecture";
+import { siteUrl } from "@/config/site";
 
 export function generateStaticParams() {
   return guides.map((article) => ({ slug: article.slug }));
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const article = guideBySlug(slug);
   const image = article?.hero?.src;
-  const description = article ? `Get clear guidance on ${article.keyword}, practical checks, and a safer next step.` : "";
+  const description = article?.description ?? "";
   return article
     ? {
         title: { absolute: article.title },
@@ -79,6 +80,29 @@ const fallbackFaq: Record<string, [string, string]> = {
   performance: ["What should I record before asking for troubleshooting help?", "Record the affected title, time and time zone, device and player version, network type, exact symptom, and the result of one controlled comparison. Keep credentials private."],
   safety: ["What should I verify before I continue?", "Use the service’s published terms, a verified app source, and an official support route. Pause when payment, privacy, or content-rights information cannot be verified."],
 };
+
+function RichParagraph({ text }: { text: string }) {
+  const linkPattern = /<a href="([^"]+)">([^<]+)<\/a>/g;
+  const content: React.ReactNode[] = [];
+  let cursor = 0;
+
+  for (const match of text.matchAll(linkPattern)) {
+    const index = match.index ?? 0;
+    const [markup, href, label] = match;
+    if (index > cursor) content.push(text.slice(cursor, index));
+    content.push(
+      href.startsWith("/") && !href.startsWith("//") ? (
+        <Link href={href} key={`${href}-${index}`}>{label}</Link>
+      ) : (
+        markup
+      ),
+    );
+    cursor = index + markup.length;
+  }
+
+  if (cursor < text.length) content.push(text.slice(cursor));
+  return <p>{content.length ? content : text}</p>;
+}
 
 const tableOverrides: Record<string, { heading: string; caption: string; headers: string[]; rows: string[][] }> = {
   "what-is-iptv": {
@@ -297,11 +321,12 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
   const article = guideBySlug(slug);
   if (!article) notFound();
   const related = article.related.map(guideBySlug).filter(Boolean);
+  const contextualGuide = related[0];
   const visual = article.hero ?? visuals[article.slug];
   const note = practical[article.category];
   const table = article.table ? (tableOverrides[article.slug] ?? article.table) : undefined;
   const articleFaqs = article.faqs.length >= 3 ? article.faqs : [...article.faqs, fallbackFaq[article.category]];
-  const articleUrl = `https://zenoraiptv.tv/blog/${article.slug}`;
+  const articleUrl = siteUrl(`/blog/${article.slug}`);
   const researchFindings = articleResearch[article.slug] ?? [];
   const relationship = articleRelationships[article.slug];
   const journey = relationship ? clusterJourneys[relationship.cluster] : undefined;
@@ -313,16 +338,16 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
         "@type": "BlogPosting",
         headline: article.title,
         description: article.description,
-        author: { "@type": "Organization", name: "Zenora IPTV", url: "https://zenoraiptv.tv" },
+        author: { "@id": `${siteUrl()}/#organization` },
         datePublished: article.updated,
         dateModified: article.updated,
         mainEntityOfPage: articleUrl,
-        image: visual ? [`https://zenoraiptv.tv${visual.src}`] : undefined,
-        publisher: { "@type": "Organization", name: "Zenora IPTV", url: "https://zenoraiptv.tv" },
+        image: visual ? [siteUrl(visual.src)] : undefined,
+        publisher: { "@id": `${siteUrl()}/#organization` },
       },
       { "@type": "BreadcrumbList", itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Blog", item: "https://zenoraiptv.tv/blog" },
-        { "@type": "ListItem", position: 2, name: categories[article.category as keyof typeof categories].name, item: `https://zenoraiptv.tv/blog?category=${article.category}` },
+        { "@type": "ListItem", position: 1, name: "Blog", item: siteUrl("/blog") },
+        { "@type": "ListItem", position: 2, name: categories[article.category as keyof typeof categories].name, item: siteUrl(`/blog?category=${article.category}`) },
         { "@type": "ListItem", position: 3, name: article.title, item: articleUrl },
       ] },
       ...(articleFaqs.length ? [{
@@ -344,7 +369,8 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
       <section className="section article-wrap"><div className="shell article-layout">
         <aside className="toc" aria-label="Table of contents"><strong>In this article</strong>{article.sections.map((section, index) => <a href={`#s${index}`} key={section.heading}>{section.heading}</a>)}<a href="#faq">FAQs</a><a href="#sources">Sources</a></aside>
         <article className="article-body">
-          <p className="article-answer-first">This guide explains <strong>{article.keyword}</strong> with practical, rights-aware checks you can use before changing a player, device, account, or network setting.</p>
+          <p className="article-answer-first article-primary-keyword-link">This guide explains <Link href="/">{article.keyword}</Link> with practical, rights-aware checks you can use before changing a player, device, account, or network setting.</p>
+          {contextualGuide && <p className="article-contextual-guide">For the closest related workflow, continue with <Link href={`/blog/${contextualGuide.slug}`}>{contextualGuide.title}</Link>; it addresses the next decision without replacing the checks on this page.</p>}
           <aside className="practical-note"><span className="eyebrow">Practical takeaway</span><h2>{note[0]}</h2><ol>{note[1].map((item) => <li key={item}>{item}</li>)}</ol></aside>
           {relationship && journey && <aside className="practical-note topic-journey" aria-label="Editorial learning path">
             <span className="eyebrow">{journey.name}</span>
@@ -360,9 +386,10 @@ export default async function BlogArticle({ params }: { params: Promise<{ slug: 
           </aside>}
           {article.sections.map((section, index) => {
             const links = section.links ?? (index < 2 ? [categoryLinks[article.category][index]] : []);
-            return <section id={`s${index}`} tabIndex={-1} key={section.heading}><span className="section-number">0{index + 1}</span><h2>{section.heading}</h2>{section.figure && <figure className="article-section-image"><Image src={section.figure.src} alt={section.figure.alt} width={800} height={500} sizes="(max-width: 900px) 100vw, 760px" />{section.figure.caption && <figcaption>{section.figure.caption}</figcaption>}</figure>}{section.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{index === 1 && researchFindings.length > 0 ? <aside className="practical-note article-research"><h3>Verified delivery details</h3><ul>{researchFindings.map((finding) => <li key={finding.href}>{finding.claim} <a href={finding.href} target="_blank" rel="noreferrer">{finding.sourceLabel}</a> <span className="muted">({finding.sourceDate})</span></li>)}</ul></aside> : null}{links.length ? <p className="article-context-links">{links.map((link, linkIndex) => <span key={link.href}>{linkIndex > 0 && " · "}<Link href={link.href}>{link.label}</Link></span>)}</p> : null}</section>;
+            return <section id={`s${index}`} tabIndex={-1} key={section.heading}><span className="section-number">0{index + 1}</span><h2>{section.heading}</h2>{section.figure && <figure className="article-section-image"><Image src={section.figure.src} alt={section.figure.alt} width={800} height={500} sizes="(max-width: 900px) 100vw, 760px" />{section.figure.caption && <figcaption>{section.figure.caption}</figcaption>}</figure>}{section.body.map((paragraph) => <RichParagraph text={paragraph} key={paragraph} />)}{index === 1 && researchFindings.length > 0 ? <aside className="practical-note article-research"><h3>Verified delivery details</h3><ul>{researchFindings.map((finding) => <li key={finding.href}>{finding.claim} <a href={finding.href} target="_blank" rel="noreferrer">{finding.sourceLabel}</a> <span className="muted">({finding.sourceDate})</span></li>)}</ul></aside> : null}{links.length ? <p className="article-context-links">{links.map((link, linkIndex) => <span key={link.href}>{linkIndex > 0 && " · "}<Link href={link.href}>{link.label}</Link></span>)}</p> : null}</section>;
           })}
           {table && <section className="article-table"><h2 id={`${article.slug}-table-heading`}>{table.heading ?? `${article.keyword}: practical checks`}</h2><ScrollableTable labelId={`${article.slug}-table-heading`}><table><caption>{table.caption}</caption><thead><tr>{table.headers.map((header) => <th scope="col" key={header}>{header}</th>)}</tr></thead><tbody>{table.rows.map((row) => <tr key={row[0]}>{row.map((cell) => <td key={cell}>{cell}</td>)}</tr>)}</tbody></table></ScrollableTable></section>}
+          <p className="article-primary-keyword-link">After completing these checks, use the <Link href="/">{article.keyword}</Link> entry point on the Zenora IPTV homepage to compare device guidance, plan information, and support resources.</p>
           <section id="faq" tabIndex={-1}><span className="section-number">FAQ</span><h2>Frequently asked questions</h2>{articleFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</section>
           <section className="sources" id="sources" tabIndex={-1}><span className="section-number">Sources</span><h2>Sources and further reading</h2><ul>{article.sources.map((source) => <li key={source.href}><a href={source.href} target={source.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{source.label}</a></li>)}</ul></section>
           <p className="article-context-links">For a clear next step, visit <Link href="/">Zenora IPTV</Link> to compare the relevant device guidance, plan information, and support resources before proceeding.</p>

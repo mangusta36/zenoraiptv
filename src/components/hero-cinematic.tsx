@@ -32,7 +32,7 @@ export function HeroCinematic() {
         />
         <img
           src="/images/cinematic-living-room-desktop.webp"
-          alt=""
+          alt="Modern living room with a large television and nighttime city view"
           width="1600"
           height="900"
           loading="eager"

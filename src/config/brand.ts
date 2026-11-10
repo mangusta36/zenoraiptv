@@ -1,7 +1,9 @@
+import { siteOrigin } from "@/config/site";
+
 export const brand = {
-  name: 'ZENORA IPTV', domain: 'https://zenoraiptv.tv', tagline: 'Entertainment, beautifully connected.',
+  name: 'ZENORA IPTV', domain: siteOrigin, tagline: 'Entertainment, beautifully connected.',
   supportEmail: '', supportHours: 'Support availability is confirmed when you contact the team.',
   currencies: ['USD', 'EUR', 'GBP'], trial: { type: 'paid', duration: '24-hour request', price: null },
-  refund: 'Conditional seven-day refund policy — review before publishing.',
+  refund: 'Refund policy draft requires authorized approval before publication.',
   contactConfigured: false, paymentConfigured: false,
 } as const;

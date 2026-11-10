@@ -4,7 +4,8 @@
       "/usr/bin/node",
       "/home/mangusta/Projects/zenoraiptv/node_modules/.bin/playwright",
       "test",
-      "tests/e2e/pricing.spec.ts"
+      "tests/e2e/blog-keywords-and-links.spec.ts",
+      "--project=desktop"
     ],
     "configFile": "/home/mangusta/Projects/zenoraiptv/playwright.config.ts",
     "rootDir": "/home/mangusta/Projects/zenoraiptv/tests",
@@ -97,99 +98,6 @@
         "metadata": {
           "actualWorkers": 1
         },
-        "name": "mobile-small",
-        "testDir": "/home/mangusta/Projects/zenoraiptv/tests",
-        "snapshotDir": "/home/mangusta/Projects/zenoraiptv/tests",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 30000,
-        "use": {
-          "baseURL": "http://127.0.0.1:3010",
-          "trace": "retain-on-failure",
-          "screenshot": "only-on-failure",
-          "video": "off",
-          "browserName": "chromium",
-          "viewport": {
-            "width": 375,
-            "height": 844
-          },
-          "isMobile": true
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "mobile-small"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/home/mangusta/Projects/zenoraiptv/docs/audits/results/browser/artifacts",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
-        "name": "mobile-standard",
-        "testDir": "/home/mangusta/Projects/zenoraiptv/tests",
-        "snapshotDir": "/home/mangusta/Projects/zenoraiptv/tests",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 30000,
-        "use": {
-          "baseURL": "http://127.0.0.1:3010",
-          "trace": "retain-on-failure",
-          "screenshot": "only-on-failure",
-          "video": "off",
-          "browserName": "chromium",
-          "viewport": {
-            "width": 390,
-            "height": 844
-          },
-          "isMobile": true
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "mobile-standard"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/home/mangusta/Projects/zenoraiptv/docs/audits/results/browser/artifacts",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
-        "name": "tablet",
-        "testDir": "/home/mangusta/Projects/zenoraiptv/tests",
-        "snapshotDir": "/home/mangusta/Projects/zenoraiptv/tests",
-        "testIgnore": [],
-        "testMatch": "**/*.@(spec|test).?(c|m)[jt]s?(x)",
-        "timeout": 30000,
-        "use": {
-          "baseURL": "http://127.0.0.1:3010",
-          "trace": "retain-on-failure",
-          "screenshot": "only-on-failure",
-          "video": "off",
-          "browserName": "chromium",
-          "viewport": {
-            "width": 768,
-            "height": 1024
-          },
-          "isMobile": true
-        },
-        "dependencies": [],
-        "ignoreSnapshots": false,
-        "__projectId": "tablet"
-      },
-      {
-        "grep": {},
-        "grepInvert": null,
-        "outputDir": "/home/mangusta/Projects/zenoraiptv/docs/audits/results/browser/artifacts",
-        "repeatEach": 1,
-        "retries": 0,
-        "metadata": {
-          "actualWorkers": 1
-        },
         "name": "desktop",
         "testDir": "/home/mangusta/Projects/zenoraiptv/tests",
         "snapshotDir": "/home/mangusta/Projects/zenoraiptv/tests",
@@ -244,33 +152,33 @@
   },
   "suites": [
     {
-      "title": "e2e/pricing.spec.ts",
-      "file": "e2e/pricing.spec.ts",
+      "title": "e2e/blog-keywords-and-links.spec.ts",
+      "file": "e2e/blog-keywords-and-links.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "pricing page matches the complete verified price matrix and checkout messages",
+          "title": "all 19 articles expose verified heading phrases and editorial links",
           "ok": true,
           "tags": [],
           "tests": [
             {
-              "timeout": 30000,
+              "timeout": 120000,
               "annotations": [],
               "expectedStatus": "passed",
-              "projectId": "mobile-small",
-              "projectName": "mobile-small",
+              "projectId": "desktop",
+              "projectName": "desktop",
               "results": [
                 {
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8187,
+                  "duration": 19607,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-07T12:36:04.522Z",
+                  "startTime": "2026-11-10T19:52:12.361Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -278,387 +186,13 @@
               "status": "expected"
             }
           ],
-          "id": "20c727f054eaae62e81d-be90c04fb18934818f67",
-          "file": "e2e/pricing.spec.ts",
-          "line": 33,
+          "id": "8824efd1d967868b84bd-741344c985c0b09c9166",
+          "file": "e2e/blog-keywords-and-links.spec.ts",
+          "line": 5,
           "column": 5
         },
         {
-          "title": "homepage uses the same six-device price matrix",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-small",
-              "projectName": "mobile-small",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2520,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:12.902Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-283bbe9459a6cd64fb53",
-          "file": "e2e/pricing.spec.ts",
-          "line": 94,
-          "column": 5
-        },
-        {
-          "title": "checkout preview accepts all six connection counts and matches configured totals",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-small",
-              "projectName": "mobile-small",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 6647,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:15.453Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-abd62396954b89a39c82",
-          "file": "e2e/pricing.spec.ts",
-          "line": 126,
-          "column": 5
-        },
-        {
-          "title": "pricing page visual evidence includes the expanded cards",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-small",
-              "projectName": "mobile-small",
-              "results": [
-                {
-                  "workerIndex": 0,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2017,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:22.129Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-26dbc3e283b8834cf9d5",
-          "file": "e2e/pricing.spec.ts",
-          "line": 172,
-          "column": 5
-        },
-        {
-          "title": "pricing page matches the complete verified price matrix and checkout messages",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-standard",
-              "projectName": "mobile-standard",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 8030,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:25.301Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-baf1616a9836871eb789",
-          "file": "e2e/pricing.spec.ts",
-          "line": 33,
-          "column": 5
-        },
-        {
-          "title": "homepage uses the same six-device price matrix",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-standard",
-              "projectName": "mobile-standard",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2762,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:33.543Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-82a2f6d65db8b4fa2059",
-          "file": "e2e/pricing.spec.ts",
-          "line": 94,
-          "column": 5
-        },
-        {
-          "title": "checkout preview accepts all six connection counts and matches configured totals",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-standard",
-              "projectName": "mobile-standard",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 6704,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:36.336Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-e12940efd33d35f4e1bd",
-          "file": "e2e/pricing.spec.ts",
-          "line": 126,
-          "column": 5
-        },
-        {
-          "title": "pricing page visual evidence includes the expanded cards",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "mobile-standard",
-              "projectName": "mobile-standard",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2060,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:43.071Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-9881d6a26d52da039ce7",
-          "file": "e2e/pricing.spec.ts",
-          "line": 172,
-          "column": 5
-        },
-        {
-          "title": "pricing page matches the complete verified price matrix and checkout messages",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "tablet",
-              "projectName": "tablet",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 7912,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:46.281Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-97fc912d098b2416ea15",
-          "file": "e2e/pricing.spec.ts",
-          "line": 33,
-          "column": 5
-        },
-        {
-          "title": "homepage uses the same six-device price matrix",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "tablet",
-              "projectName": "tablet",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2738,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:54.411Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-8fc8790c7a8a70494f02",
-          "file": "e2e/pricing.spec.ts",
-          "line": 94,
-          "column": 5
-        },
-        {
-          "title": "checkout preview accepts all six connection counts and matches configured totals",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "tablet",
-              "projectName": "tablet",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 8305,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:36:57.180Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-6bdc5542c433e0b3ebfc",
-          "file": "e2e/pricing.spec.ts",
-          "line": 126,
-          "column": 5
-        },
-        {
-          "title": "pricing page visual evidence includes the expanded cards",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "tablet",
-              "projectName": "tablet",
-              "results": [
-                {
-                  "workerIndex": 2,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2138,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:37:05.520Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-9863c25f9944797b0bb7",
-          "file": "e2e/pricing.spec.ts",
-          "line": 172,
-          "column": 5
-        },
-        {
-          "title": "pricing page matches the complete verified price matrix and checkout messages",
+          "title": "representative primary and contextual links navigate on click",
           "ok": true,
           "tags": [],
           "tests": [
@@ -670,15 +204,15 @@
               "projectName": "desktop",
               "results": [
                 {
-                  "workerIndex": 3,
+                  "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8126,
+                  "duration": 2786,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-11-07T12:37:08.805Z",
+                  "startTime": "2026-11-10T19:52:32.184Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -686,111 +220,9 @@
               "status": "expected"
             }
           ],
-          "id": "20c727f054eaae62e81d-b865378e9a81d17dc6ee",
-          "file": "e2e/pricing.spec.ts",
-          "line": 33,
-          "column": 5
-        },
-        {
-          "title": "homepage uses the same six-device price matrix",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2885,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:37:17.124Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-9405fd97a700a39c0e2c",
-          "file": "e2e/pricing.spec.ts",
-          "line": 94,
-          "column": 5
-        },
-        {
-          "title": "checkout preview accepts all six connection counts and matches configured totals",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 10130,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:37:20.039Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-d309699a92c9678a1f3f",
-          "file": "e2e/pricing.spec.ts",
-          "line": 126,
-          "column": 5
-        },
-        {
-          "title": "pricing page visual evidence includes the expanded cards",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "desktop",
-              "projectName": "desktop",
-              "results": [
-                {
-                  "workerIndex": 3,
-                  "parallelIndex": 0,
-                  "status": "passed",
-                  "duration": 2828,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-11-07T12:37:30.196Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "expected"
-            }
-          ],
-          "id": "20c727f054eaae62e81d-6b96d873b8719d95ed00",
-          "file": "e2e/pricing.spec.ts",
-          "line": 172,
+          "id": "8824efd1d967868b84bd-564fd05c728fc0de51d7",
+          "file": "e2e/blog-keywords-and-links.spec.ts",
+          "line": 47,
           "column": 5
         }
       ]
@@ -798,9 +230,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-11-07T12:36:00.855Z",
-    "duration": 92345.069,
-    "expected": 16,
+    "startTime": "2026-11-10T19:52:07.779Z",
+    "duration": 27398.059999999998,
+    "expected": 2,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

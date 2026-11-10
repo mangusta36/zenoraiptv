@@ -9,8 +9,9 @@ import "./homepage-expansion.css";
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/site";
 import { Footer } from "@/components/footer";
+import { siteOrigin } from "@/config/site";
 export const metadata: Metadata = {
-  metadataBase: new URL("https://zenoraiptv.tv"),
+  metadataBase: new URL(siteOrigin),
   title: {
     default: "Zenora IPTV | Flexible plans, devices and setup guidance",
     template: "%s | Zenora IPTV",
@@ -31,13 +32,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               "@graph": [
                 {
                   "@type": "Organization",
+                  "@id": `${siteOrigin}/#organization`,
                   name: "Zenora IPTV",
-                  url: "https://zenoraiptv.tv",
+                  url: siteOrigin,
                 },
                 {
                   "@type": "WebSite",
+                  "@id": `${siteOrigin}/#website`,
                   name: "Zenora IPTV",
-                  url: "https://zenoraiptv.tv",
+                  url: siteOrigin,
+                  publisher: { "@id": `${siteOrigin}/#organization` },
                 },
               ],
             }),

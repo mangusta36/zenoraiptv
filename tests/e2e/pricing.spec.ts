@@ -17,15 +17,15 @@ const prices = {
 } as const;
 
 const richBenefits = [
-  "26,000+ live TV channels",
-  "100,000+ movies and series",
-  "HD, Full HD, and 4K options where available",
+  "Live channel categories where available",
+  "Movie and series categories where available",
+  "Picture quality depends on the content, player, device, and connection",
   "Smart TV and streaming-device guidance",
   "Fire TV and Android TV setup guides",
   "Mobile and desktop setup paths",
   "Device compatibility checks",
   "M3U, Xtream Codes, and portal setup concepts",
-  "Setup guidance after verified payment",
+  "Setup guidance through the verified support route",
   "Troubleshooting resources",
   "Renewal assistance for existing customers",
 ];

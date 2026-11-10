@@ -2,7 +2,7 @@ import { privateMetadata } from "../../route-metadata";
 
 export const metadata = privateMetadata(
   "Order Confirmation | Zenora IPTV",
-  "View Zenora IPTV order confirmation information after verified payment processing.",
+  "Review the Zenora IPTV order-confirmation placeholder and its current integration status.",
 );
 
 export default function OrderSuccessLayout({

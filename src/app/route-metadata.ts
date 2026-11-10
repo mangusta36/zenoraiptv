@@ -7,7 +7,7 @@ export function brandMetadata(title: string, description: string, canonical: str
     title: { absolute: title },
     description,
     alternates: { canonical },
-    robots: noindex ? { index: false, follow: false } : undefined,
+    robots: noindex ? { index: false, follow: true } : undefined,
     openGraph: { title, description, url: canonical, images: [{ url: socialImage, alt: "Zenora IPTV guidance" }] },
     twitter: { card: "summary_large_image", title, description, images: [socialImage] },
   };

@@ -4,6 +4,7 @@ export type Guide = {
   title: string;
   description: string;
   keyword: string;
+  headingKeywords: [string, string, string, string, string];
   intent: string;
   updated: string;
   read: string;
@@ -42,13 +43,14 @@ export const guides: Guide[] = [
     "title": "What Is IPTV? A Clear Beginner’s Guide",
     "description": "Learn what IPTV means, how live and on-demand streams are delivered, and the questions worth asking before you choose a service.",
     "keyword": "what is IPTV",
+    "headingKeywords": ["what is IPTV", "delivery method", "live channels and video on demand", "playlists, portals, and program guides", "IPTV misconceptions"],
     "intent": "Informational",
     "updated": "2026-11-03",
     "read": "15 min read",
     "summary": "IPTV is television delivered through an internet connection rather than a traditional broadcast path. The label describes a delivery method—not a promise about a provider, app, channel list, or content rights.",
     "sections": [
       {
-        "heading": "Start with the delivery method",
+        "heading": "What is IPTV? Start with the delivery method",
         "body": [
           "IPTV stands for Internet Protocol Television. In practical terms, a player requests media over an IP network and presents it on a TV, phone, tablet, or computer. A familiar viewing experience can include live channels, a program guide, and on-demand libraries, but those features depend on the specific service and player.",
           "It is helpful to separate three roles: the service that is authorized to offer programming, the player that displays a stream, and the device that runs the player. One product can sometimes cover more than one role, but they should not be assumed to be interchangeable.",
@@ -273,13 +275,14 @@ export const guides: Guide[] = [
     "title": "M3U Playlists Explained: What the File Does—and Does Not Do",
     "description": "A practical explanation of M3U and M3U8 playlist files, how players use them, and safe ways to handle a playlist URL.",
     "keyword": "what is an M3U playlist",
+    "headingKeywords": ["what is an M3U playlist", "playlist URL", "M3U syntax", "M3U versus M3U8", "EPG identifiers"],
     "intent": "Informational",
     "updated": "2026-11-01",
     "read": "14 min read",
     "summary": "An M3U or M3U8 file is a text playlist that points a player to media locations. It is an instruction list, not a player, subscription, or proof that underlying media is authorized.",
     "sections": [
       {
-        "heading": "The playlist’s job",
+        "heading": "What is an M3U playlist? Start with the playlist’s job",
         "body": [
           "At its simplest, a playlist lists one or more media locations. A player reads it, displays entries it recognizes, and then asks the listed server for media. The .m3u8 extension is commonly associated with HTTP Live Streaming manifests, which can reference short media segments and alternate variants.",
           "The file itself does not guarantee that every entry works on every device. Codec support, authentication, guide data, network availability, and the player’s own capabilities can all affect the result."
@@ -450,13 +453,14 @@ export const guides: Guide[] = [
     "title": "IPTV Device Compatibility Guide",
     "description": "Plan a compatible IPTV setup by checking the device, player, network, and authorized service before entering credentials.",
     "keyword": "IPTV device compatibility",
+    "headingKeywords": ["IPTV device compatibility", "compatibility chain", "codec support", "built-in TV apps and external devices", "test compatibility before subscribing"],
     "intent": "Informational",
     "updated": "2026-11-03",
     "read": "14 min read",
     "summary": "Compatibility is a chain: an authorized service, a suitable player, a supported device, and a stable network must all work together. Check the exact model and operating-system version before assuming an app is available.",
     "sections": [
       {
-        "heading": "Build the compatibility chain",
+        "heading": "IPTV device compatibility: build the compatibility chain",
         "body": [
           "Begin with the service’s documented requirements and its authorized setup method. Then verify whether the intended player is available from that device’s official store or official developer. Finally, check the device’s operating-system version, available storage, and network connection.",
           "Zenora’s public setup area currently provides general pages for Smart TV, Android, Fire TV, Apple TV, iOS, Windows, macOS, and MAG devices. Those pages should be used as high-level orientation; they do not independently verify every third-party player or service entitlement.",
@@ -468,7 +472,8 @@ export const guides: Guide[] = [
           "src": "/images/guides/device-compatibility-chain.webp",
           "alt": "Illustrated chain connecting service documentation, official app listing, device model, player, and television screen",
           "caption": "Check each compatibility layer separately so a symptom points to a useful next test."
-        }
+        },
+        "links": [{ "href": "/devices", "label": "Compare the IPTV device setup directory" }]
       },
       {
         "heading": "Choose the screen that fits your habits",
@@ -679,6 +684,7 @@ export const guides: Guide[] = [
     "title": "Fire TV IPTV Setup Checklist",
     "description": "Follow a safe IPTV setup on Firestick checklist: verify your model, use a legitimate player source, and isolate setup problems without risky shortcuts.",
     "keyword": "IPTV Setup on Firestick",
+    "headingKeywords": ["IPTV Setup on Firestick", "legitimate player", "service details", "Fire TV software differences", "first-playback test"],
     "intent": "How-to",
     "updated": "2026-11-03",
     "read": "13 min read",
@@ -720,7 +726,7 @@ export const guides: Guide[] = [
     },
     "sections": [
       {
-        "heading": "Preflight the device",
+        "heading": "IPTV Setup on Firestick: preflight the device",
         "body": [
           "Before installing anything, update Fire TV, check available storage, and connect it to the network you actually plan to use. Test one known-good streaming app first. That separates a general device or network problem from an issue with a particular player or account.",
           "Fire OS is Android-derived, but Amazon documents multiple Fire OS generations and device specifications. Store availability, remote behavior, performance, and a publisher’s support can differ by model, region, and software release. Treat a successful setup on another household’s device as a clue, not proof of compatibility.",
@@ -733,7 +739,8 @@ export const guides: Guide[] = [
           "src": "/images/guides/fire-tv-device-preflight.webp",
           "alt": "Original diagram showing Fire TV device, software update, network, and storage checks",
           "caption": "A short preflight avoids changing several variables after a setup failure."
-        }
+        },
+        "links": [{ "href": "/setup/firestick", "label": "Open the Fire TV Stick IPTV setup steps" }]
       },
       {
         "heading": "Add only a legitimate player",
@@ -818,7 +825,7 @@ export const guides: Guide[] = [
           "Ethernet and Wi-Fi are comparison tools, not universal fixes. A supported wired connection can remove the local wireless hop from one test, while Wi-Fi may be the practical daily choice when the router location and signal are suitable. Start by testing a known-good application on the same Fire TV, then replay the same authorized item without changing the player. If several apps fail together, inspect the home connection or router before entering credentials again. If only one player or item fails, preserve that result for the player publisher or authorized service. Avoid promising a fixed bandwidth number, because codec, adaptive delivery, device load, and network conditions all vary."
         ],
         "figure": {
-          "src": "/images/guides/ethernet-vs-wifi-streaming-overview.webp",
+          "src": "/images/guides/fire-tv-wifi-placement.webp",
           "alt": "Illustration of a Fire TV device compared on Wi-Fi and Ethernet near a home router",
           "caption": "Change one network variable at a time to separate wireless conditions from other causes."
         }
@@ -892,13 +899,14 @@ export const guides: Guide[] = [
     "title": "IPTV Troubleshooting Guide",
     "description": "Work through buffering, login, black-screen, and guide issues in a controlled order so you can isolate the actual cause.",
     "keyword": "IPTV troubleshooting",
+    "headingKeywords": ["IPTV troubleshooting", "buffering or freezing", "login, playlist, or guide failures", "one-variable diagnostic method", "support ticket template"],
     "intent": "Problem-solving",
     "updated": "2026-11-03",
     "read": "14 min read",
     "summary": "Troubleshoot from the outside in: confirm the service and account, then network, then device, then player. Change one thing per test so the result means something.",
     "sections": [
       {
-        "heading": "Use the four-check flow",
+        "heading": "IPTV troubleshooting: use the four-check flow",
         "body": [
           "1. Scope: Does the issue affect one channel, all content, or one device? 2. Compare: Does another approved device or trusted network show the same result? 3. Observe: Record the exact error, time, player version, and connection type. 4. Escalate: Share that evidence with the authorized service or player developer.",
           "The aim is a reliable next step, not a dramatic reset. A short record of what worked alongside what failed is often the fastest route to a correct answer, especially when another person needs to reproduce the test later.",
@@ -907,7 +915,7 @@ export const guides: Guide[] = [
           "Work from observations that are easy to reverse. Restarting a player, noting free storage, or trying a documented refresh is usually less disruptive than deleting data or factory-resetting a device. Do not change credentials, player settings, network services, and cables all at once. If the symptom vanishes after several changes, you have restored playback but lost the clue that could prevent a repeat. The four-check flow creates a compact record that is useful even when the issue disappears: what failed, where it failed, when it failed, and what comparison did or did not reproduce it. That record also prevents a household member from repeating an unsafe suggestion simply because it was offered as a universal “fix.”"
         ],
         "figure": { "src": "/images/guides/iptv-troubleshooting-flow.webp", "alt": "Illustrated troubleshooting flow that narrows an IPTV symptom by scope and comparison", "caption": "Start with the symptom and scope before changing settings." },
-        "links": [{ "href": "/blog/iptv-buffering-causes", "label": "Read the buffering diagnosis guide" }]
+        "links": [{ "href": "/troubleshooting", "label": "Start at the IPTV troubleshooting hub" }, { "href": "/blog/iptv-buffering-causes", "label": "Read the buffering diagnosis guide" }]
       },
       {
         "heading": "Buffering or freezing",
@@ -1057,13 +1065,14 @@ export const guides: Guide[] = [
     "title": "How to Improve IPTV Streaming Quality Without Guesswork",
     "description": "A practical, evidence-led checklist for improving streaming stability across Wi-Fi, Ethernet, player settings, and device health.",
     "keyword": "improve IPTV streaming quality",
+    "headingKeywords": ["improve IPTV streaming quality", "throughput, latency, jitter, and packet loss", "optimize Wi-Fi", "device capability", "source is the bottleneck"],
     "intent": "Problem-solving",
     "updated": "2026-11-03",
     "read": "14 min read",
     "summary": "Treat quality as a system property. A fast plan on paper is not enough if Wi-Fi interference, a limited device, or a problematic source is the bottleneck.",
     "sections": [
       {
-        "heading": "Measure before tuning",
+        "heading": "Improve IPTV streaming quality: measure before tuning",
         "body": [
           "Test at the time and place where playback fails. Note whether the device is on 2.4 GHz, 5 GHz, Ethernet, or mobile data, and whether another approved video service is affected. That small record is more useful than repeatedly toggling every setting.",
           "If Ethernet is practical and the device supports it, it offers a direct comparison point. If Wi-Fi is necessary, distance, walls, neighboring networks, and router placement can all change results, sometimes substantially between rooms and different times of day in the same home.",
@@ -1211,13 +1220,14 @@ export const guides: Guide[] = [
     "title": "IPTV Security, Privacy, and Legal Considerations",
     "description": "Understand the practical security and privacy checks to make before installing a player, sharing credentials, or evaluating an IPTV service.",
     "keyword": "IPTV security and privacy",
+    "headingKeywords": ["IPTV security and privacy", "source you can verify", "risky installation instructions", "protect playlist URLs", "evaluate legality"],
     "intent": "Informational",
     "updated": "2026-11-03",
     "read": "14 min read",
     "summary": "Security starts with official software sources and minimal data sharing. Legality and licensing are separate questions that depend on the service, content, rights, and jurisdiction.",
     "sections": [
       {
-        "heading": "Use a source you can verify",
+        "heading": "IPTV security and privacy: use a source you can verify",
         "body": [
           "Prefer an official device store or the app developer’s own verified distribution channel. Check the publisher, update history, requested permissions, and support contact before you install. “Recommended” download links in anonymous forums are not a substitute for provenance.",
           "Keep the operating system and player updated. CISA recommends changing default credentials and using current updates for connected devices; those steps reduce avoidable risk across the home network.",
@@ -1370,6 +1380,7 @@ export const guides: Guide[] = [
     "title": "How to Evaluate an IPTV Subscription Before You Buy",
     "description": "A consumer-first checklist for comparing IPTV subscriptions without mistaking marketing language for verified capability or rights.",
     "keyword": "how to choose an IPTV subscription",
+    "headingKeywords": ["how to choose an IPTV subscription", "player from a provider", "total offer", "content and the operator", "trial evaluation"],
     "intent": "Commercial investigation",
     "updated": "2026-11-03",
     "read": "13 min read",
@@ -1411,7 +1422,7 @@ export const guides: Guide[] = [
     },
     "sections": [
       {
-        "heading": "Questions worth getting answered",
+        "heading": "How to choose an IPTV subscription: questions worth getting answered",
         "body": [
           "Ask what devices are supported, how many streams can run concurrently, how support works, and what the renewal and refund terms are. Request answers in writing when the decision is important.",
           "Assess whether the information is specific enough to be meaningful. “Works everywhere” and “all channels” are not compatibility or rights documentation, and neither phrase explains the support actually available when a household encounters a real setup or specific billing problem.",
@@ -1425,7 +1436,7 @@ export const guides: Guide[] = [
           "alt": "Original subscription evaluation diagram covering device fit, connections, terms, and support",
           "caption": "A useful comparison turns broad claims into checks you can verify."
         },
-        "links": [{ "href": "/blog/device-compatibility", "label": "Check device compatibility before choosing a plan" }]
+        "links": [{ "href": "/pricing", "label": "Compare configured IPTV subscription plans and pricing" }, { "href": "/blog/device-compatibility", "label": "Check device compatibility before choosing a plan" }]
       },
       {
         "heading": "Separate a player from a provider",
@@ -1556,13 +1567,14 @@ export const guides: Guide[] = [
     "title": "What Is an IPTV Player? Player vs. Provider Explained",
     "description": "Understand what an IPTV player does, what it cannot verify, and how it differs from the service that supplies programming.",
     "keyword": "IPTV player vs provider",
+    "headingKeywords": ["IPTV player vs provider", "compatible player needs", "player versus service versus operating system", "formats and features", "free and paid apps"],
     "intent": "Informational",
     "updated": "2026-11-03",
     "read": "13 min read",
     "summary": "An IPTV player is software that reads supported stream information and presents it on a device. It is separate from the service that authorizes and supplies programming.",
     "sections": [
       {
-        "heading": "Separate the roles before you troubleshoot",
+        "heading": "IPTV player vs provider: separate the roles before you troubleshoot",
         "body": [
           "A player provides the viewing interface: it can organize entries, request media, and expose device controls. A provider or service controls the account, entitlement, source media, and its terms. The device and network are separate links in that chain.",
           "That distinction matters when something fails. Installing a different player cannot by itself repair a provider-side entitlement, and a working player does not establish that a source is authorized.",
@@ -1712,13 +1724,14 @@ export const guides: Guide[] = [
     "title": "IPTV on Android TV and Google TV: Compatibility Guide",
     "description": "Plan an authorized IPTV player setup for Android TV or Google TV by checking platform, store, remote, and service requirements first.",
     "keyword": "IPTV on Android TV and Google TV",
+    "headingKeywords": ["IPTV on Android TV and Google TV", "official path", "remote navigation and playback formats", "install safely and test the network", "television box"],
     "intent": "How-to",
     "updated": "2026-11-03",
     "read": "13 min read",
     "summary": "Android TV and Google TV devices can share an app ecosystem, but availability still depends on the exact device, region, operating-system version, and publisher support.",
     "sections": [
       {
-        "heading": "Understand the platform relationship",
+        "heading": "IPTV on Android TV and Google TV: understand the platform relationship",
         "body": [
           "Google describes Google TV as an experience built on Android TV. That relationship does not mean every Android app is suitable for television or available for every device; TV apps need a remote-friendly experience and can have distribution requirements.",
           "Treat the device name as a starting point, not a compatibility guarantee. Confirm the exact model, system version, and country or region where the app is offered.",
@@ -1924,9 +1937,10 @@ export const guides: Guide[] = [
   {
     "slug": "iptv-buffering-causes",
     "category": "performance",
-    "title": "IPTV Buffering Fix: Diagnose the Actual Cause",
+    "title": "IPTV Buffering Fix: Causes and Troubleshooting Steps",
     "description": "Use a controlled IPTV buffering fix to separate Wi-Fi, device, player, congestion, and source problems before changing random settings.",
     "keyword": "IPTV Buffering Fix",
+    "headingKeywords": ["IPTV Buffering Fix", "controlled isolation order", "frozen app", "peak-hour congestion", "buffer size and adaptive quality"],
     "intent": "Troubleshooting",
     "updated": "2026-11-03",
     "read": "13 min read",
@@ -1968,7 +1982,7 @@ export const guides: Guide[] = [
     },
     "sections": [
       {
-        "heading": "Why buffering can happen",
+        "heading": "IPTV Buffering Fix: why buffering can happen",
         "body": [
           "Adaptive streaming players request short media segments and may change between available quality variants. A pause can therefore originate upstream, in local connectivity, in the device, or in the player’s handling of the stream.",
           "A fast speed-test result alone does not prove the complete playback path is healthy. It measures a different destination and moment than the stream you are trying to watch.",
@@ -2143,13 +2157,14 @@ export const guides: Guide[] = [
     "title": "Ethernet vs. Wi-Fi for Streaming: How to Choose",
     "description": "Compare wired Ethernet and Wi-Fi for streaming with a practical test plan that accounts for layout, interference, and device placement.",
     "keyword": "Ethernet vs Wi-Fi for streaming",
+    "headingKeywords": ["Ethernet vs Wi-Fi for streaming", "wired and wireless", "Wi-Fi bands and placement", "A/B test", "cabling and adapter considerations"],
     "intent": "Commercial investigation",
     "updated": "2026-11-03",
     "read": "13 min read",
     "summary": "Ethernet can reduce wireless variables for a fixed device, while Wi-Fi can be the right fit when cabling is impractical. Test the actual viewing location instead of assuming either is automatically better.",
     "sections": [
       {
-        "heading": "What changes between wired and wireless",
+        "heading": "Ethernet vs Wi-Fi for streaming: what changes between wired and wireless",
         "body": [
           "Ethernet uses a cable between the device and local network. Wi-Fi uses radio signals that can be affected by distance, walls, competing networks, and other interference. A wired connection can simplify diagnosis for a stationary TV device because it removes part of the wireless path.",
           "That does not make every cable setup superior. Port speed, adapters, router capacity, and the upstream service still matter.",
@@ -2362,13 +2377,14 @@ export const guides: Guide[] = [
     "title": "Samsung Smart TV IPTV Compatibility: What to Check First",
     "description": "Plan an authorized IPTV setup for a Samsung Smart TV by checking the model year, Tizen platform, official app source, and service requirements.",
     "keyword": "Samsung Smart TV IPTV compatibility",
+    "headingKeywords": ["Samsung Smart TV IPTV compatibility", "compatibility chain", "Samsung model and platform", "television app store", "external streaming device"],
     "intent": "How-to",
     "updated": "2026-11-03",
     "read": "13 min read",
     "summary": "Samsung TV compatibility depends on the exact model and its software platform. Confirm the TV’s model year, current software, official app availability, and the service’s documented requirements before entering credentials.",
     "sections": [
       {
-        "heading": "Start with the TV platform",
+        "heading": "Samsung Smart TV IPTV compatibility: start with the TV platform",
         "body": [
           "Samsung says its 2016-and-later Smart TVs run Tizen applications; older model groups use different application platforms. A generic ‘Samsung Smart TV’ label is therefore not enough to establish player availability or feature support.",
           "Find the exact model and software version in the television settings, then use the official store and the player publisher’s documentation to verify availability for that model and region.",
@@ -2583,13 +2599,14 @@ export const guides: Guide[] = [
     "title": "Apple TV IPTV Compatibility: A Careful Setup Plan",
     "description": "Check Apple TV player availability, service support, network readiness, and account details before setting up an authorized IPTV source.",
     "keyword": "Apple TV IPTV compatibility",
+    "headingKeywords": ["Apple TV IPTV compatibility", "tvOS support", "HLS compatibility", "remote navigation and home audio", "privacy and account handling"],
     "intent": "How-to",
     "updated": "2026-11-03",
     "read": "13 min read",
     "summary": "Apple’s platforms support HTTP Live Streaming, but an Apple TV setup still depends on the specific player, service authorization, account method, and current device software.",
     "sections": [
       {
-        "heading": "Know what platform support means",
+        "heading": "Apple TV IPTV compatibility: know what platform support means",
         "body": [
           "Apple documents HLS playback across iPhone, iPad, Apple TV, and macOS. That establishes a supported delivery technology, not that every provider, playlist, authentication method, or third-party player is available on every Apple TV.",
           "Check the exact Apple TV model and current tvOS version, then verify the chosen player from its official App Store listing or its publisher’s documentation.",
@@ -2808,13 +2825,14 @@ export const guides: Guide[] = [
     "title": "IPTV EPG Not Working: A Controlled Troubleshooting Guide",
     "description": "Troubleshoot missing, incorrect, or stale IPTV guide data by separating service data, player mapping, device time, and local import issues.",
     "keyword": "IPTV EPG not working",
+    "headingKeywords": ["IPTV EPG not working", "EPG data path", "time zones and daylight-saving changes", "investigate mapping", "guide-data support request"],
     "intent": "Troubleshooting",
     "updated": "2026-11-01",
     "read": "13 min read",
     "summary": "An electronic program guide is data supplied and interpreted separately from video playback. Check the account, player mapping, device time, and update state one at a time before assuming the stream is broken.",
     "sections": [
       {
-        "heading": "Separate guide data from video playback",
+        "heading": "IPTV EPG not working: separate guide data from video playback",
         "body": [
           "A channel can play while its listing is missing, and a guide can display while video playback fails. Treat those as separate symptoms. The guide may depend on service-side data, identifiers, a player’s mapping rules, and the device clock.",
           "At a high level, an EPG joins two independently maintained collections. The playlist or service catalog tells the player which channels exist and how playback is requested. The guide feed describes schedules, normally with a channel identity and programme start and end times. The player joins them and then renders a grid in local time. Each handoff can fail differently. The provider can publish no schedule for a channel, publish one that is delayed, change an identifier, or offer a feed that a particular player does not understand. The player can retain old data, fail to download an update, make an ambiguous name match, or use the wrong clock conversion. The device can report an incorrect time zone. Keeping those layers separate is the core diagnostic skill: it lets you ask whether a record is absent, attached to the wrong channel, shifted in time, stale, or merely displayed differently by one application. It also protects against the tempting but incorrect conclusion that an empty guide proves that the internet, subscription, or media server is down.",
@@ -3000,13 +3018,14 @@ export const guides: Guide[] = [
     "title": "M3U Playlist Not Loading: How to Isolate the Cause",
     "description": "Diagnose an M3U import or loading failure without exposing credentials or changing every player and network setting at once.",
     "keyword": "M3U playlist not loading",
+    "headingKeywords": ["M3U playlist not loading", "compatibility chain", "failure stage", "formatting without exposing secrets", "player compatibility from server access"],
     "intent": "Troubleshooting",
     "updated": "2026-11-01",
     "read": "13 min read",
     "summary": "An M3U loading failure can involve the address, account authorization, player format support, device time, or network path. Test one variable at a time and keep playlist URLs private.",
     "sections": [
       {
-        "heading": "Check the input before changing the device",
+        "heading": "M3U playlist not loading: check the input before changing the device",
         "body": [
           "An M3U or M3U8 playlist is a text instruction list that can point a player to media locations. It is not proof that the player supports every referenced format or that an account is authorized.",
           "Use the exact address or file supplied by the authorized service. Check for accidental spaces or transcription errors, but do not paste tokenized links into public checkers, screenshots, or forums."
@@ -3154,13 +3173,14 @@ export const guides: Guide[] = [
     "title": "IPTV Black Screen or No Sound: A Safer Diagnostic Order",
     "description": "Work through black-screen and audio symptoms by separating display, audio output, player, stream, and network variables.",
     "keyword": "IPTV black screen no sound",
+    "headingKeywords": ["IPTV black screen no sound", "black screen with audio", "audio output, HDMI, and external speakers", "device decoding and format compatibility", "support escalation"],
     "intent": "Troubleshooting",
     "updated": "2026-11-01",
     "read": "13 min read",
     "summary": "A black screen or missing audio can be caused by the display path, audio output, player, device capability, or source. Test the symptom in a fixed order instead of changing everything at once.",
     "sections": [
       {
-        "heading": "Describe the symptom precisely",
+        "heading": "IPTV black screen no sound: describe the symptom precisely",
         "body": [
           "Note whether the player shows controls, whether audio continues, whether every source is affected, and whether another app plays normally. ‘Black screen’ can mean different things: an app interface that never loads, video without audio, audio without video, or a display-input problem.",
           "This description determines the next test. A known-good authorized app can help establish whether the television, cable, audio output, or network is involved."
@@ -3301,13 +3321,14 @@ export const guides: Guide[] = [
     "title": "Fire TV vs. Android TV for IPTV: Compatibility Differences",
     "description": "Compare Fire TV and Android TV as IPTV player platforms without assuming that Android-related apps, services, or store listings are interchangeable.",
     "keyword": "Fire TV vs Android TV IPTV",
+    "headingKeywords": ["Fire TV vs Android TV IPTV", "differ in distribution", "remote experience", "hardware and networking", "purchase decision checklist"],
     "intent": "Commercial investigation",
     "updated": "2026-11-01",
     "read": "13 min read",
     "summary": "Fire TV and Android TV share Android-related foundations, but store distribution, services, device versions, and player support can differ. Choose based on the authorized service’s documented requirements for your exact device.",
     "sections": [
       {
-        "heading": "Why the names are not interchangeable",
+        "heading": "Fire TV vs Android TV IPTV: why the names are not interchangeable",
         "body": [
           "Amazon describes Fire OS as a fork of Android’s open-source project and notes that apps may need changes where they rely on Google services. Google TV is an experience built on Android TV. These relationships explain shared development roots, not identical user availability.",
           "A player’s Android TV listing, for example, does not establish its Fire TV availability. Check the official store and the publisher’s support documentation for the exact platform.",
@@ -3489,13 +3510,14 @@ export const guides: Guide[] = [
     "title": "IPTV Login and Authentication Errors: Troubleshooting Guide",
     "description": "Troubleshoot IPTV login and authentication errors safely by separating credential, connection, player, device, and authorization problems.",
     "keyword": "IPTV login authentication errors",
+    "headingKeywords": ["IPTV login authentication errors", "credentials and login formats", "network and server connectivity", "player and device configuration", "subscription and authorization restrictions"],
     "intent": "Troubleshooting",
     "updated": "2026-11-01",
     "read": "15 min read",
     "summary": "IPTV login and authentication errors are easier to resolve when credentials, network reachability, player behavior, and account authorization are tested as separate layers.",
     "sections": [
       {
-        "heading": "Understand IPTV Login and Authentication Errors",
+        "heading": "Understand IPTV login authentication errors",
         "body": [
           "An IPTV login problem is a symptom, not a diagnosis. Authentication asks whether the service can verify the identity or access credential presented by a player. Authorization happens after that check: the service may recognize the account but decline a particular catalog, device, or playback request because its published rules are not met. A player may also display a broad message such as “login failed” when it could not reach a server at all. Start by recording where the flow stopped rather than treating every failure as an expired subscription.",
           "Credential failures usually appear immediately after submitting a username and password, a portal identity, an activation code, or a private playlist address. They can result from a mistyped character, an old credential, a copied invisible space, or an entry method that the player does not support. A true rejection is different from a slow spinner or a connection timeout: in the first case the service responded with a refusal; in the second, the player may not have received a usable response. The HTTP standard distinguishes an authentication challenge from other response conditions, but individual players often simplify that detail for viewers.",

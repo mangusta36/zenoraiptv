@@ -8,12 +8,14 @@ import {
   ContactForm,
   WhatsAppAction,
 } from "@/components/site";
+import { faqItems } from "@/data/faqs";
 import {
   renewalWhatsAppUrl,
   supportWhatsAppUrl,
   trialWhatsAppUrl,
 } from "@/config/contact";
 import { IconTile, type IconName } from "@/components/icons";
+import { siteUrl } from "@/config/site";
 const descriptions: Record<string, string> = {
   features:
     "A closer look at the flexible, device-ready Zenora IPTV experience.",
@@ -231,13 +233,13 @@ function Breadcrumbs({ current }: { current: string }) {
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://zenoraiptv.tv/",
+        item: siteUrl(),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: current,
-        item: `https://zenoraiptv.tv/${current.toLowerCase()}`,
+        item: siteUrl(`/${current.toLowerCase()}`),
       },
     ],
   };
@@ -262,7 +264,7 @@ export function DevicesPage() {
       <Breadcrumbs current="Devices" />
       <PageHero
         eyebrow="Device compatibility"
-        title="Find the device setup path that fits your screen."
+        title="Compare IPTV device compatibility and setup paths."
       >
         Use this compatibility overview to compare device categories, then
         confirm your exact model, operating system, player source, and account
@@ -346,7 +348,7 @@ export function SetupDirectory() {
       <Breadcrumbs current="Setup" />
       <PageHero
         eyebrow="Setup directory"
-        title="Choose your device, then follow the right setup guide."
+        title="Choose your device, then follow the right IPTV setup guide."
       >
         This directory helps prospective and existing customers find the
         documented installation path for their device. Detailed steps remain on
@@ -466,7 +468,7 @@ export function Channels() {
     <>
       <PageHero
         eyebrow="Catalogue"
-        title="Explore your entertainment landscape."
+        title="Explore IPTV channel information and availability."
       >
         This searchable directory uses clearly marked demonstration entries;
         verify exact channels, languages, and availability with Zenora.
@@ -534,6 +536,9 @@ function PricingValue() {
           <Link href="/blog">
             Browse practical articles <span aria-hidden="true">→</span>
           </Link>
+          <Link href="/blog/choosing-an-iptv-subscription">
+            Evaluate an IPTV subscription <span aria-hidden="true">→</span>
+          </Link>
           <Link href="/channels">
             Explore channel information <span aria-hidden="true">→</span>
           </Link>
@@ -578,11 +583,11 @@ function PricingFaq() {
           </p>
         </details>
         <details>
-          <summary>When does activation guidance arrive?</summary>
+          <summary>How do I confirm setup-guidance delivery?</summary>
           <p>
-            The public site describes setup details as following verified
-            payment confirmation. The checkout preview does not accept payment
-            or create an order.
+            Confirm timing and the delivery method through verified support
+            before payment. The checkout preview does not accept payment,
+            create an order, or deliver subscription credentials.
           </p>
         </details>
         <details>
@@ -597,10 +602,10 @@ function PricingFaq() {
         <details>
           <summary>What about refunds?</summary>
           <p>
-            Read the <Link href="/refund-policy">refund policy</Link> before
-            relying on eligibility. The page describes conditional seven-day
-            refunds where a technical issue cannot be resolved and requires
-            final approved terms.
+            The <Link href="/refund-policy">refund policy</Link> is an
+            unapproved noindex draft. Eligibility, exclusions, deadlines, and
+            the request process require authorized terms before anyone should
+            rely on them.
           </p>
         </details>
       </div>
@@ -612,10 +617,11 @@ export function PricingPage() {
     <>
       <PageHero
         eyebrow="New subscription pricing"
-        title="Compare a new Zenora IPTV subscription."
+        title="Compare IPTV subscription plans by duration and connections."
       >
-        Choose a duration and the number of simultaneous connections for a new
-        subscription. Prices update before you continue to checkout.
+        Compare IPTV pricing for one to six simultaneous streams. Choose a
+        duration and connection count for a new subscription; the configured
+        price updates before you continue to the checkout preview.
       </PageHero>
       <main className="section">
         <div className="shell">
@@ -651,9 +657,19 @@ export function PricingPage() {
   );
 }
 export function FaqPage() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map(([name, text]) => ({
+      "@type": "Question",
+      name,
+      acceptedAnswer: { "@type": "Answer", text },
+    })),
+  };
   return (
     <>
-      <PageHero eyebrow="Help center" title="Answers, made easy to find.">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
+      <PageHero eyebrow="Help center" title="IPTV FAQs about plans, devices, setup, and support.">
         Searchable support is being prepared. Start with the most common
         subscription and setup answers below.
       </PageHero>
@@ -783,7 +799,7 @@ export function Contact({ trial = false }) {
     <>
       <PageHero
         eyebrow={trial ? "Paid trial request" : "Contact support"}
-        title={trial ? "Try it thoughtfully." : "Let’s make setup simpler."}
+        title={trial ? "Request information about a paid IPTV trial." : "Contact Zenora IPTV for plan and setup support."}
       >
         {trial
           ? "Zenora advertises a paid 24-hour trial request. Terms and price require confirmation before proceeding."
@@ -808,11 +824,21 @@ export function Contact({ trial = false }) {
   );
 }
 export function Setup({ device, steps }: { device: string; steps: string[] }) {
+  const relatedGuide = device === "Fire TV Stick"
+    ? { href: "/blog/fire-tv-setup-checklist", label: "Read the Fire TV IPTV setup checklist" }
+    : device === "Apple TV"
+      ? { href: "/blog/apple-tv-iptv-compatibility", label: "Check Apple TV IPTV compatibility" }
+      : device === "Android"
+        ? { href: "/blog/android-tv-google-tv-iptv", label: "Check Android TV and Google TV compatibility" }
+        : device === "Smart TV"
+          ? { href: "/blog/samsung-smart-tv-iptv", label: "Review Samsung Smart TV IPTV compatibility" }
+          : { href: "/blog/device-compatibility", label: "Read the IPTV device compatibility guide" };
   return (
     <>
-      <PageHero eyebrow="Setup guide" title={`Set up on ${device}.`}>
-        Use legitimate compatible applications and the subscription details sent
-        after verified payment. Never share your credentials publicly.
+      <PageHero eyebrow="Setup guide" title={`Set up IPTV on ${device}.`}>
+        Use a legitimate compatible application and only the subscription
+        details supplied through a verified support process. Never share your
+        credentials publicly.
       </PageHero>
       <main className="section">
         <div className="shell">
@@ -857,6 +883,9 @@ export function Setup({ device, steps }: { device: string; steps: string[] }) {
               <Link className="btn ghost" href="/troubleshooting">
                 Troubleshooting
               </Link>
+              <Link className="page-text-link" href={relatedGuide.href}>
+                {relatedGuide.label} <span aria-hidden="true">→</span>
+              </Link>
             </aside>
           </div>
           <CTA />
@@ -866,6 +895,29 @@ export function Setup({ device, steps }: { device: string; steps: string[] }) {
   );
 }
 export function Legal({ title }: { title: string }) {
+  const sections: Record<string, { heading: string; copy: string }[]> = {
+    "Privacy policy": [
+      { heading: "Business identity and contact", copy: "Add the verified legal entity or controller name, registered address, privacy contact, operating territories, and effective date." },
+      { heading: "Data handling", copy: "Document the personal-data categories actually collected, their sources, purposes, legal bases, required or optional status, recipients and processors, international transfers, retention periods, and deletion rules." },
+      { heading: "Individual rights and safeguards", copy: "Add jurisdiction-specific rights, the request and complaint process, identity-verification method, security practices, children’s-data position, and a change-notice procedure." },
+    ],
+    "Terms & conditions": [
+      { heading: "Contracting party and service scope", copy: "Add the verified seller identity, eligibility rules, territory, service description, account responsibilities, acceptable-use rules, and any content-availability conditions." },
+      { heading: "Billing and service changes", copy: "Authorize the payment, renewal, cancellation, trial, suspension, termination, and service-change terms. Reconcile them with the configured plans and the 12-month plus 2-month promotion." },
+      { heading: "Risk and disputes", copy: "Counsel must approve intellectual-property language, disclaimers, liability limits, indemnity if appropriate, governing law, venue or dispute process, severability, and effective date." },
+    ],
+    "Refund policy": [
+      { heading: "No approved eligibility is published", copy: "The repository contains no authoritative business evidence for a seven-day refund promise. Do not rely on earlier marketing references as contractual terms." },
+      { heading: "Decision points requiring approval", copy: "Specify eligible purchases, excluded circumstances, claim deadlines, required evidence, troubleshooting prerequisites, partial-refund treatment, processing method and timing, cancellation distinction, and the verified request channel." },
+      { heading: "Consistency review", copy: "Reconcile the approved policy with pricing, checkout, trial, FAQ, support, payment-provider rules, and consumer-law obligations in each served territory." },
+    ],
+    "Cookie policy": [
+      { heading: "Technical inventory first", copy: "Confirm every cookie and browser-storage item used in production, including name, provider, purpose, category, duration, and whether it is first or third party. Do not infer production behavior from this draft." },
+      { heading: "Consent and controls", copy: "Identify strictly necessary items and any analytics, advertising, preference, chat, embedded-media, or payment technologies. Add the lawful consent basis, regional behavior, withdrawal control, and consent-record retention where required." },
+      { heading: "Related disclosures", copy: "Reconcile the final inventory with the privacy notice, vendors and processors, international-transfer disclosures, cookie banner, and a dated change process." },
+    ],
+  };
+  const pageSections = sections[title] ?? [];
   return (
     <>
       <PageHero eyebrow="Legal" title={title}>
@@ -880,25 +932,12 @@ export function Legal({ title }: { title: string }) {
             create a contract, provide legal advice, or replace the business’s
             verified policy.
           </p>
-          <h2>Information and use</h2>
-          <p>
-            Use of Zenora services, plan availability, support delivery, and
-            applicable conditions should be described in final approved terms.
-            Customers should review their selected plan and device compatibility
-            before purchase.
-          </p>
-          <h2>Payments and refunds</h2>
-          <p>
-            The public website references a conditional seven-day refund policy
-            where a technical issue cannot be resolved. Eligibility, exclusions,
-            timing, and the request process must be confirmed in the official
-            approved policy.
-          </p>
-          <h2>Contact</h2>
-          <p>
-            Add a verified privacy or support contact in the centralized brand
-            configuration before publishing this page.
-          </p>
+          {pageSections.map((section) => (
+            <section key={section.heading}>
+              <h2>{section.heading}</h2>
+              <p>{section.copy}</p>
+            </section>
+          ))}
         </article>
       </main>
     </>

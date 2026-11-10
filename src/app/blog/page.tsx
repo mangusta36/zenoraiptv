@@ -5,15 +5,23 @@ import { categories, guides } from "@/data/guides";
 import { clusterJourneys } from "@/data/topic-architecture";
 
 export const metadata: Metadata = {
-  title: { absolute: "Zenora IPTV Blog" },
+  title: { absolute: "IPTV Setup, Device & Troubleshooting Guides | Zenora IPTV" },
   description:
     "Practical, rights-aware Zenora IPTV articles about IPTV fundamentals, devices, setup, performance, and security.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Zenora IPTV Blog",
+    title: "IPTV Setup, Device & Troubleshooting Guides | Zenora IPTV",
     description:
       "Practical, rights-aware articles about IPTV fundamentals, devices, setup, performance, and security.",
     url: "/blog",
+    images: [{ url: "/images/guides/iptv-living-room-editorial.webp", alt: "Zenora IPTV practical guide library" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IPTV Setup, Device & Troubleshooting Guides | Zenora IPTV",
+    description:
+      "Practical, rights-aware articles about IPTV fundamentals, devices, setup, performance, and security.",
+    images: ["/images/guides/iptv-living-room-editorial.webp"],
   },
 };
 
@@ -41,7 +49,7 @@ export default async function Blog({
         <div className="shell guide-hero-grid">
           <div>
             <div className="eyebrow">Zenora IPTV Blog</div>
-            <h1>Clear reading for better streaming decisions.</h1>
+            <h1>IPTV guides for setup, devices, and troubleshooting.</h1>
             <p>
               Reader-first articles about the technology around IPTV, from
               compatibility planning to practical troubleshooting. General

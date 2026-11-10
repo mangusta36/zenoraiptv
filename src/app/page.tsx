@@ -29,6 +29,17 @@ export const metadata: Metadata = {
     description:
       "Explore Zenora IPTV plans, compatible-device guidance, setup resources, and practical streaming knowledge.",
     url: "/",
+    images: [{
+      url: "/images/cinematic-living-room-desktop.webp",
+      alt: "Zenora IPTV compatible-device viewing experience",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Zenora IPTV | Flexible plans, devices and setup guidance",
+    description:
+      "Explore Zenora IPTV plans, compatible-device guidance, setup resources, and practical streaming knowledge.",
+    images: ["/images/cinematic-living-room-desktop.webp"],
   },
 };
 

@@ -2,8 +2,8 @@ import { SetupDirectory } from "@/components/pages";
 import { brandMetadata } from "../route-metadata";
 
 export const metadata = brandMetadata(
-  "Zenora IPTV Setup | Device Installation Guides",
-  "Choose the right Zenora IPTV device setup guide, prepare a player and account details, and troubleshoot common configuration issues.",
+  "IPTV Setup Guides for Smart TVs & Devices | Zenora IPTV",
+  "Choose an IPTV setup guide for Smart TV, Fire TV, Android, Apple TV, mobile, desktop, or MAG and prepare the supported connection details.",
   "/setup",
 );
 

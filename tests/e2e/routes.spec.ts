@@ -45,7 +45,7 @@ test("topic hubs route readers to the relevant editorial paths", async ({ page }
   await expect(page.getByRole("heading", { name: "Choose the question before the fix." })).toBeVisible();
   await expect(page.getByRole("link", { name: /Safety, privacy, and subscription evaluation/i })).toHaveAttribute("href", "/blog?category=safety");
   await page.goto("/troubleshooting", { waitUntil: "domcontentloaded" });
-  await expect(page.getByRole("heading", { name: "Start with the symptom, not a random fix." })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Start IPTV troubleshooting with the symptom, not a random fix." })).toBeVisible();
   const buffering = page.getByRole("link", { name: /Playback pauses or quality changes/i });
   await buffering.focus();
   await expect(buffering).toBeFocused();

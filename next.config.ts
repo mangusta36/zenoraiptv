@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'zenoratv.vip' }],
+        destination: 'https://www.zenoratv.vip/:path*',
+        permanent: true,
+      },
       { source: '/guides/category/fundamentals', destination: '/blog?category=fundamentals', permanent: true },
       { source: '/guides/category/setup', destination: '/blog?category=setup', permanent: true },
       { source: '/guides/category/performance', destination: '/blog?category=performance', permanent: true },

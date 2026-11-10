@@ -19,6 +19,7 @@ import {
   X,
 } from "lucide-react";
 import { nav } from "@/config/navigation";
+import { faqItems } from "@/data/faqs";
 import {
   connectionOptions,
   durations,
@@ -168,16 +169,16 @@ export function Pricing({
   const [connections, setConnections] = useState<Connections>(1);
   const selectedLabel = `${connections} simultaneous connection${connections > 1 ? "s" : ""}`;
   const planBenefits = [
-    "26,000+ live TV channels",
-    "100,000+ movies and series",
-    "HD, Full HD, and 4K options where available",
+    "Live channel categories where available",
+    "Movie and series categories where available",
+    "Picture quality depends on the content, player, device, and connection",
     `${connections} simultaneous stream${connections > 1 ? "s" : ""} in this plan`,
     "Smart TV and streaming-device guidance",
     "Fire TV and Android TV setup guides",
     "Mobile and desktop setup paths",
     "Device compatibility checks",
     "M3U, Xtream Codes, and portal setup concepts",
-    "Setup guidance after verified payment",
+    "Setup guidance through the verified support route",
     "Troubleshooting resources",
     "Renewal assistance for existing customers",
   ];
@@ -308,15 +309,15 @@ export function Pricing({
                 >
                   <span>
                     <Tv aria-hidden="true" />
-                    26,000+ Live Channels
+                    Live Channel Categories
                   </span>
                   <span>
                     <Clapperboard aria-hidden="true" />
-                    100,000+ Movies &amp; Series
+                    Movie &amp; Series Categories
                   </span>
                   <span>
                     <Sparkles aria-hidden="true" />
-                    4K &amp; Full HD Options
+                    Content-Dependent Picture Quality
                   </span>
                 </div>
               )}
@@ -400,25 +401,26 @@ export function Pricing({
             Everything You Need for a Better Entertainment Experience
           </h2>
           <p>
-            Service figures and features apply across plan durations; content,
-            device, and connection conditions can affect availability.
+            Plan variables apply across the configured durations. Catalogue,
+            picture quality, device, and connection conditions require separate
+            confirmation.
           </p>
         </div>
         <div className="pricing-shared-list">
           <Link href="/channels">
             <Tv aria-hidden="true" />
             <span>
-              <b>26,000+ Live Channels</b>
-              <small>100,000+ VOD titles, including movies and series.</small>
+              <b>Live, Movie &amp; Series Categories</b>
+              <small>Confirm exact live, movie, and series availability before choosing a plan.</small>
             </span>
           </Link>
           <Link href="/blog/improve-streaming-quality">
             <Server aria-hidden="true" />
             <span>
-              <b>4K &amp; Full HD Options</b>
+              <b>Picture Quality Varies by Setup</b>
               <small>
-                Optimized Streaming Servers; availability depends on content,
-                device, and connection.
+                Resolution and playback depend on content, player, device, and
+                connection conditions.
               </small>
             </span>
           </Link>
@@ -436,8 +438,8 @@ export function Pricing({
             <span>
               <b>Activation and setup guidance</b>
               <small>
-                Follow the documented route for your device after verified
-                payment.
+                Confirm delivery timing through verified support, then follow
+                the documented route for your device.
               </small>
             </span>
           </Link>
@@ -465,28 +467,7 @@ export function Pricing({
 }
 export const FAQs = ({ limit }: { limit?: number }) => (
   <div className="faq">
-    {[
-      [
-        "What devices can I use?",
-        "Zenora’s public site references Smart TVs, Android, Fire TV, MAG and compatible M3U or portal applications. Consult the appropriate setup guide before ordering.",
-      ],
-      [
-        "How many devices can stream at once?",
-        "Select one to six simultaneous connections before checkout. A connection means a stream used at the same time.",
-      ],
-      [
-        "Is there a free trial?",
-        "No. Zenora advertises a paid trial request. Availability and pricing must be confirmed with support.",
-      ],
-      [
-        "When will I receive setup details?",
-        "The public site says details are sent after payment confirmation. This redesign does not claim an automated payment integration is active.",
-      ],
-      [
-        "What is the refund policy?",
-        "The public website mentions conditional seven-day refunds where a technical issue cannot be resolved. Review the official policy before relying on it.",
-      ],
-    ]
+    {faqItems
       .slice(0, limit)
       .map(([q, a]) => (
         <details key={q}>

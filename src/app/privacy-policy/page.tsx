@@ -4,6 +4,7 @@ export const metadata = brandMetadata(
   "Privacy Policy | Zenora IPTV",
   "Read the Zenora IPTV privacy policy draft and the information it identifies for review before publication.",
   "/privacy-policy",
+  true,
 );
 export default function Page() {
   return <Legal title="Privacy policy" />;
