@@ -21,6 +21,8 @@ const noindexRoutes = [
   "/order/status",
   "/order/success",
 ];
+const expectedIndexableRouteCount = 42;
+const expectedBlogArticleCount = 19;
 const genericAltPattern = /^(?:image|photo|picture|iptv image|placeholder)$/i;
 const errors = [];
 const decorativeImages = [];
@@ -32,6 +34,12 @@ let browser;
 const clean = (value = "") => value.replace(/\s+/g, " ").trim();
 const fail = (route, source, problem) => errors.push({ route, source: source || "[unknown source]", problem });
 const sourceFromTag = (tag) => tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i)?.[1] ?? "[unknown source]";
+const decorativeReason = (image) => {
+  if (image.explicitDecorative) return "data-decorative";
+  if (image.role === "presentation" || image.role === "none") return `role=${image.role}`;
+  if (image.ariaHidden === "true") return "aria-hidden";
+  return "";
+};
 const filenameWords = (source) => {
   const raw = new URL(source, productionOrigin);
   const original = raw.pathname === "/_next/image" ? raw.searchParams.get("url") ?? raw.pathname : raw.pathname;
@@ -78,9 +86,11 @@ try {
   if (!sitemapResponse.ok()) throw new Error(`Sitemap returned HTTP ${sitemapResponse.status()}.`);
   const sitemap = await sitemapResponse.text();
   const indexableRoutes = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => new URL(match[1]).pathname);
+  const blogArticleRoutes = indexableRoutes.filter((route) => route.startsWith("/blog/"));
   const routes = [...indexableRoutes, ...noindexRoutes.filter((route) => !indexableRoutes.includes(route))];
 
-  if (indexableRoutes.length !== 42) errors.push({ route: "/sitemap.xml", source: "[route inventory]", problem: `expected 42 indexable routes, found ${indexableRoutes.length}` });
+  if (indexableRoutes.length !== expectedIndexableRouteCount) errors.push({ route: "/sitemap.xml", source: "[route inventory]", problem: `expected ${expectedIndexableRouteCount} indexable routes, found ${indexableRoutes.length}` });
+  if (blogArticleRoutes.length !== expectedBlogArticleCount) errors.push({ route: "/sitemap.xml", source: "[route inventory]", problem: `expected ${expectedBlogArticleCount} blog article routes, found ${blogArticleRoutes.length}` });
 
   for (const route of routes) {
     let rawHtml = "";
@@ -128,7 +138,11 @@ try {
         const alt = clean(image.alt);
         if (!alt) {
           if (image.linked && !image.linkName) fail(route, image.source, "linked image has empty alt text and its link has no accessible name");
-          else decorativeImages.push({ route, source: image.source, explicit: image.explicitDecorative || image.role === "presentation" || image.ariaHidden === "true" });
+          else {
+            const reason = decorativeReason(image);
+            if (!reason) fail(route, image.source, "empty alt text is not explicitly identified as decorative");
+            else decorativeImages.push({ route, source: image.source, reason });
+          }
           continue;
         }
         if (genericAltPattern.test(alt)) fail(route, image.source, `generic alt text: “${alt}”`);
@@ -145,7 +159,7 @@ try {
     console.error(`Image alt verification failed: ${routes.length} pages checked, ${renderedImageCount} browser-rendered images checked, ${errors.length} issue(s).`);
     process.exitCode = 1;
   } else {
-    console.log(`Image alt verification passed: ${routes.length} pages checked (${indexableRoutes.length} indexable, ${routes.length - indexableRoutes.length} noindex), ${renderedImageCount} browser-rendered images and ${serverImageCount} server-rendered image occurrences checked.`);
+    console.log(`Image alt verification passed: ${routes.length} pages checked (${indexableRoutes.length} indexable, including ${blogArticleRoutes.length} blog articles; ${routes.length - indexableRoutes.length} noindex), ${renderedImageCount} browser-rendered images and ${serverImageCount} server-rendered image occurrences checked.`);
     console.log(`Missing alt attributes: 0. Intentionally decorative empty alts: ${decorativeImages.length}.`);
   }
 } finally {

@@ -72,7 +72,7 @@ export function Header() {
         <div className="shell nav-inner">
           <Link className="brand" href="/">
             <i />
-            ZENORA IPTV
+            Zenora IPTV
           </Link>
           <nav className="nav-links" aria-label="Primary navigation">
             {nav.map((n) => (
@@ -398,7 +398,7 @@ export function Pricing({
         <div className="pricing-shared-intro">
           <span className="eyebrow">Included with every plan</span>
           <h2 id="pricing-benefits-title">
-            Everything You Need for a Better Entertainment Experience
+            Plan benefits for compatible devices and guided setup
           </h2>
           <p>
             Plan variables apply across the configured durations. Catalogue,
@@ -496,7 +496,7 @@ export function CTA() {
             maxWidth: 700,
           }}
         >
-          Ready for a better entertainment experience?
+          Choose your next step with Zenora IPTV.
         </h2>
         <Link className="btn primary" href="/pricing">
           View pricing

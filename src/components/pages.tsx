@@ -70,8 +70,8 @@ export function Standard({
                     <span className="eyebrow">0{i + 1}</span>
                     <h3>{x}</h3>
                     <p className="muted">
-                      Zenora is designed to make plan choice, configuration, and
-                      help easier to navigate.
+                      Zenora IPTV is designed to make plan choice,
+                      configuration, and help easier to navigate.
                     </p>
                   </article>
                 ))}
@@ -264,7 +264,7 @@ export function DevicesPage() {
       <Breadcrumbs current="Devices" />
       <PageHero
         eyebrow="Device compatibility"
-        title="Compare IPTV device compatibility and setup paths."
+        title="Compare Zenora IPTV device compatibility and setup paths."
       >
         Use this compatibility overview to compare device categories, then
         confirm your exact model, operating system, player source, and account
@@ -468,7 +468,7 @@ export function Channels() {
     <>
       <PageHero
         eyebrow="Catalogue"
-        title="Explore IPTV channel information and availability."
+        title="Explore Zenora IPTV channel information and availability."
       >
         This searchable directory uses clearly marked demonstration entries;
         verify exact channels, languages, and availability with Zenora.
@@ -617,7 +617,7 @@ export function PricingPage() {
     <>
       <PageHero
         eyebrow="New subscription pricing"
-        title="Compare IPTV subscription plans by duration and connections."
+        title="Compare Zenora IPTV subscription plans by duration and connections."
       >
         Compare IPTV pricing for one to six simultaneous streams. Choose a
         duration and connection count for a new subscription; the configured
@@ -669,7 +669,7 @@ export function FaqPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <PageHero eyebrow="Help center" title="IPTV FAQs about plans, devices, setup, and support.">
+      <PageHero eyebrow="Help center" title="Zenora IPTV FAQs about plans, devices, setup, and support.">
         Searchable support is being prepared. Start with the most common
         subscription and setup answers below.
       </PageHero>
@@ -850,7 +850,7 @@ export function Setup({ device, steps }: { device: string; steps: string[] }) {
           >
             <article className="card" style={{ padding: 28 }}>
               <div className="eyebrow">Before you begin</div>
-              <h2>Keep it simple, step by step.</h2>
+              <h2>Follow the Zenora IPTV setup steps for your device.</h2>
               {steps.map((x, i) => (
                 <div
                   key={x}

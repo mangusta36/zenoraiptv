@@ -6,7 +6,7 @@ This summary and `ZENORA-INTERNAL-LINK-AUDIT.csv` are generated in the same run 
 
 - Indexable source routes: 42
 - Unique rendered internal links: 1777
-- CSV SHA-256: `e17fe2a2be1ed22d6af2be3d60fc9e07c79152ce4f3c59cff4165585dac667d1`
+- CSV SHA-256: `5598a2ff6b2f777dce41d08d3ca1f0458ae8bb1bf599c05a15d0c86cb094a4d4`
 
 ## Link contexts
 

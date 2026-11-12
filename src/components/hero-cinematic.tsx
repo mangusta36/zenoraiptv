@@ -47,11 +47,7 @@ export function HeroCinematic() {
             <i /> THE FUTURE OF ENTERTAINMENT
           </div>
           <h1>
-            <span>Zenora IPTV.</span>
-            <br />
-            One Premium
-            <br />
-            Experience.
+            <span>Zenora IPTV</span> — Premium IPTV Plans &amp; Streaming
           </h1>
           <p>
             Live television, movies, and series on your favorite compatible

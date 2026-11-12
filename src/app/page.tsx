@@ -19,13 +19,13 @@ import { categories, guides } from "@/data/guides";
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Zenora IPTV | Flexible plans, devices and setup guidance",
+    absolute: "Zenora IPTV | Premium IPTV Plans & Streaming",
   },
   description:
     "Zenora IPTV offers flexible subscription plans, compatible-device guidance, and practical setup and troubleshooting resources.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Zenora IPTV | Flexible plans, devices and setup guidance",
+    title: "Zenora IPTV | Premium IPTV Plans & Streaming",
     description:
       "Explore Zenora IPTV plans, compatible-device guidance, setup resources, and practical streaming knowledge.",
     url: "/",
@@ -190,7 +190,7 @@ export default function Home() {
             <div>
               <div className="eyebrow">Why choose Zenora IPTV</div>
               <h2 id="why-choose-zenora">
-                Make a confident choice before you reach checkout.
+                Why choose Zenora IPTV for your streaming setup?
               </h2>
             </div>
             <p>
@@ -206,7 +206,7 @@ export default function Home() {
               <span className="home-benefit-number">01 / DEVICE PLANNING</span>
               <MonitorSmartphone aria-hidden="true" />
               <div>
-                <h3>Start with the screen you already use.</h3>
+                <h3>Start with a compatible device.</h3>
                 <p>
                   Compare documented setup paths for Fire TV Stick, Android,
                   Apple TV, Smart TV, iPhone and iPad, Windows, macOS, and MAG
@@ -227,7 +227,7 @@ export default function Home() {
               <article>
                 <span>02</span>
                 <div>
-                  <h3>Compare the two plan variables that matter.</h3>
+                  <h3>Compare plan duration and connection count.</h3>
                   <p>
                     Review duration separately from simultaneous connections,
                     with prices shown before you continue to checkout.
@@ -240,7 +240,7 @@ export default function Home() {
               <article>
                 <span>03</span>
                 <div>
-                  <h3>Keep setup and problem solving within reach.</h3>
+                  <h3>Use focused setup and troubleshooting guides.</h3>
                   <p>
                     Move from device-specific setup to buffering, playlist, and
                     login guidance without searching across unrelated sites.
@@ -253,7 +253,7 @@ export default function Home() {
               <article>
                 <span>04</span>
                 <div>
-                  <h3>Find answers without unsupported promises.</h3>
+                  <h3>Find answers grounded in published details.</h3>
                   <p>
                     Explore channel information, FAQs, policy details, and
                     support routes that describe what to verify before buying.
@@ -351,7 +351,7 @@ export default function Home() {
             <div>
               <div className="eyebrow">Your screen, your setup path</div>
               <h2 id="home-devices">
-                Plan Zenora IPTV setup for the device you already use.
+                Explore Zenora IPTV compatible devices and setup paths.
               </h2>
             </div>
             <p>
@@ -501,9 +501,9 @@ export default function Home() {
         <div className="shell">
           <div className="section-kicker">
             <div>
-              <div className="eyebrow">Zenora IPTV Blog</div>
+              <div className="eyebrow">Practical guides</div>
               <h2 id="home-blog">
-                Useful reading for decisions, setup, and problem solving.
+                Zenora IPTV guides for decisions, setup, and troubleshooting.
               </h2>
             </div>
             <p>
